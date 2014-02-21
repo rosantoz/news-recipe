@@ -1,0 +1,15 @@
+{
+    "name"             : "rosantoz/recipe_finder",
+    "description"      : "Recipe Finder",
+    "minimum-stability": "stable",
+    "license"          : "BSB",
+    "authors"          : [
+        {
+            "name" : "Rodrigo",
+            "email": "rodrigo@dossantos.com.au"
+        }
+    ],
+    "require-dev"      : {
+        "phpunit/phpunit": "3.7.*"
+    }
+}
