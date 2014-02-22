@@ -66,7 +66,7 @@ class Items
             throw $e;
         }
 
-        return $items;
+        return $this->orderByClosestUseBy($items);
     }
 
     /**
@@ -93,13 +93,24 @@ class Items
         );
     }
 
-    protected function orderByClosestUseBy($items)
+    /**
+     * Order items by closest use-by date
+     *
+     * @param array $items Items array
+     *
+     * @return array Ordered array
+     */
+    public function orderByClosestUseBy($items)
     {
-        return usort($items, function ($value, $key) {
+        usort(
+            $items, function ($item1, $item2) {
 
-            echo $key . ' => ' . $value . ' ';
+                return strtotime(str_replace('/', '-', $item1['useBy']))
+                - strtotime(str_replace('/', '-', $item2['useBy']));
+            }
+        );
 
-        });
+        return $items;
 
     }
 }

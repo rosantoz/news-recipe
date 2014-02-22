@@ -27,10 +27,10 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
         $items = $this->items->getItemFromCsvFile($file);
 
         $this->assertCount(5, $items);
-        $this->assertEquals('bread', $items[0]['item']);
-        $this->assertEquals(10, $items[0]['amount']);
-        $this->assertEquals('slices', $items[0]['unit']);
-        $this->assertEquals('25/12/2014', $items[0]['useBy']);
+        $this->assertEquals('mixed salad', $items[0]['item']);
+        $this->assertEquals(150, $items[0]['amount']);
+        $this->assertEquals('grams', $items[0]['unit']);
+        $this->assertEquals('26/12/2013', $items[0]['useBy']);
     }
 
     /**
@@ -54,37 +54,33 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
         $this->items->getItemFromCsvFile($file);
     }
 
-    protected function orderByClosesUseByProvider()
+    public function testOrderByClosestUseBy()
     {
-        return array(
+        $items = array(
             array(
-                array(
-                    'item'   => 'bread',
-                    'amount' => 10,
-                    'unit'   => 'slices',
-                    'useBy'  => '25/03/2014'
-                ),
-                array(
-                    'item'   => 'cheese',
-                    'amount' => 10,
-                    'unit'   => 'slices',
-                    'useBy'  => '25/02/2014'
-                ),
-                array(
-                    'item'   => 'butter',
-                    'amount' => 250,
-                    'unit'   => 'grams',
-                    'useBy'  => '10/03/2014'
-                ),
-            )
+                'item'   => 'bread',
+                'amount' => 10,
+                'unit'   => 'slices',
+                'useBy'  => '26/03/2014'
+            ),
+            array(
+                'item'   => 'cheese',
+                'amount' => 10,
+                'unit'   => 'slices',
+                'useBy'  => '25/02/2014'
+            ),
+            array(
+                'item'   => 'butter',
+                'amount' => 250,
+                'unit'   => 'grams',
+                'useBy'  => '10/03/2014'
+            ),
         );
-    }
 
-    /**
-     * @dataProvider orderByClosestUseByProvider
-     */
-    public function testOrderByClosestUseBy($items)
-    {
-        $this->items->orderByClosestUseBy($items);
+        $orderedItems = $this->items->orderByClosestUseBy($items);
+
+        $this->assertEquals('cheese', $orderedItems[0]['item']);
+        $this->assertEquals('butter', $orderedItems[1]['item']);
+        $this->assertEquals('bread', $orderedItems[2]['item']);
     }
 }
