@@ -7,14 +7,12 @@ class Recipes
 {
     protected $recipes;
 
-    public function getFromJsonFile()
+    public function getFromJsonFile($jsonFile)
     {
-        $jsonFile = __DIR__ . '/../../../data/recipes.json';
-
-        $recipes = json_decode(file_get_contents($jsonFile), true);
-
-        if ($recipes === null) {
-            throw new \Exception("Could not parse recipes json file");
+        try {
+            $recipes = json_decode(file_get_contents($jsonFile), true);
+        } catch (\Exception $e) {
+            throw $e;
         }
 
         return $recipes;
