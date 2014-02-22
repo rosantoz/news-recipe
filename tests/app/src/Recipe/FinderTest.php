@@ -32,4 +32,21 @@ class FinderTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testResultWhenNoIngredientsAreFound()
+    {
+        $itemsFile   = __DIR__ . '/../../../fixtures/fridge.csv';
+        $recipesFile = __DIR__ . '/../../../fixtures/recipes_order_takeout.json';
+
+        $items   = new Items();
+        $recipes = new Recipes();
+        $finder  = new Finder(
+            $items->getItemFromCsvFile($itemsFile),
+            $recipes->getFromJsonFile($recipesFile)
+        );
+
+        $whatToCook = $finder->find();
+
+        $this->assertEquals('Order Takeout', $whatToCook);
+    }
+
 }

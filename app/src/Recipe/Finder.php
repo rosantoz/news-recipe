@@ -24,6 +24,7 @@ namespace Recipe;
  */
 class Finder
 {
+    const NO_RECIPES_FOUND = 'Order Takeout';
     protected $items;
     protected $recipes;
 
@@ -67,6 +68,10 @@ class Finder
                 $matchingItems[] = $recipe['name'];
             }
 
+        }
+
+        if (!count($matchingItems)) {
+            return self::NO_RECIPES_FOUND;
         }
 
         return $matchingItems;

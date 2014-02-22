@@ -1,0 +1,33 @@
+[
+    {
+        "name"       : "some exotic dish",
+        "ingredients": [
+            {
+                "item"  : "crab",
+                "amount": "2",
+                "unit"  : "of"
+            },
+            {
+                "item"  : "madagascar vanilla",
+                "amount": "100",
+                "unit"  : "grams"
+            }
+        ]
+    },
+    {
+        "name"       : "another exotic dish",
+        "ingredients": [
+            {
+                "item"  : "maple syrup",
+                "amount": "500",
+                "unit"  : "grams"
+            },
+
+            {
+                "item"  : "barbecue sauce",
+                "amount": "100",
+                "unit"  : "grams"
+            }
+        ]
+    }
+]
