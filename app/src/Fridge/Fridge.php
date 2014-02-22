@@ -13,5 +13,5 @@ class Fridge
         $this->items = $items;
     }
 
-    
+
 } 
