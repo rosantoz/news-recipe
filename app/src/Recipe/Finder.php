@@ -125,4 +125,9 @@ class Finder
     {
         return strtotime(str_replace('/', '-', $useBy)) < time();
     }
+
+    public function getClosestUseBy()
+    {
+
+    }
 }

@@ -53,4 +53,38 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
 
         $this->items->getItemFromCsvFile($file);
     }
+
+    protected function orderByClosesUseByProvider()
+    {
+        return array(
+            array(
+                array(
+                    'item'   => 'bread',
+                    'amount' => 10,
+                    'unit'   => 'slices',
+                    'useBy'  => '25/03/2014'
+                ),
+                array(
+                    'item'   => 'cheese',
+                    'amount' => 10,
+                    'unit'   => 'slices',
+                    'useBy'  => '25/02/2014'
+                ),
+                array(
+                    'item'   => 'butter',
+                    'amount' => 250,
+                    'unit'   => 'grams',
+                    'useBy'  => '10/03/2014'
+                ),
+            )
+        );
+    }
+
+    /**
+     * @dataProvider orderByClosestUseByProvider
+     */
+    public function testOrderByClosestUseBy($items)
+    {
+        $this->items->orderByClosestUseBy($items);
+    }
 }
