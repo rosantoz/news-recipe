@@ -4,7 +4,6 @@ namespace Fridge;
 
 class Items
 {
-
     public function getItemFromCsvFile()
     {
         $csvFile = __DIR__ . '/../../../data/fridge.csv';
@@ -30,11 +29,4 @@ class Items
 
         return $items;
     }
-
-    public function hasExpired($item)
-    {
-
-        return strtotime(str_replace('/', '-', $item['useBy'])) < time();
-    }
-
 }

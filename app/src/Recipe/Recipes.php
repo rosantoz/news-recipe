@@ -5,6 +5,8 @@ namespace Recipe;
 
 class Recipes
 {
+    protected $recipes;
+
     public function getFromJsonFile()
     {
         $jsonFile = __DIR__ . '/../../../data/recipes.json';
