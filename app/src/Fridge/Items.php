@@ -27,7 +27,7 @@ class Items
         'item'   => '/^(.*)$/',
         'amount' => '/^(\d+)$/',
         'unit'   => '/^(of|grams|ml|slices)$/i',
-        'useBy'  => '/^(\d{1,2})\/(\d{1,2})\/(\d{1,2})/'
+        'useBy'  => '/^(\d{1,2})\/(\d{1,2})\/(\d{1,4})/'
     );
 
     /**
@@ -81,6 +81,7 @@ class Items
     {
         array_walk_recursive(
             $items, function ($value, $key) {
+
                 if (!preg_match($this->inputValidation[$key], $value)) {
                     throw new \Exception(
                         '"' . $value
