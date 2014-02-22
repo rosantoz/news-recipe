@@ -27,6 +27,10 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
         $items = $this->items->getItemFromCsvFile($file);
 
         $this->assertCount(5, $items);
+        $this->assertEquals('bread', $items[0]['item']);
+        $this->assertEquals(10, $items[0]['amount']);
+        $this->assertEquals('slices', $items[0]['unit']);
+        $this->assertEquals('25/12/2014', $items[0]['useBy']);
     }
 
     /**
