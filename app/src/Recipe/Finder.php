@@ -13,7 +13,7 @@ class Finder
         $this->recipes = $recipes;
     }
 
-    public function getMatchingItems()
+    public function find()
     {
         $matchingItems = [];
         foreach ($this->recipes as $recipe) {
@@ -62,7 +62,7 @@ class Finder
         return false;
     }
 
-    public function hasExpired($useBy)
+    protected function hasExpired($useBy)
     {
         return strtotime(str_replace('/', '-', $useBy)) > time();
     }
