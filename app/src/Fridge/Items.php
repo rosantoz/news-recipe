@@ -23,12 +23,20 @@ namespace Fridge;
  */
 class Items
 {
+    protected $inputValidation = array(
+        'item'   => '/^(.*)$/',
+        'amount' => '/^(\d+)$/',
+        'unit'   => '/^(of|grams|ml|slices)$/i',
+        'useBy'  => '/^(\d{1,2})\/(\d{1,2})\/(\d{1,2})/'
+    );
+
     /**
      * Parses a csv file containing the items in the fridge
      * and convert them into an array of items
      *
      * @param string $csvFile Path to CSV file
      *
+     * @throws \Exception
      * @return array
      */
     public function getItemFromCsvFile($csvFile)
@@ -52,6 +60,35 @@ class Items
             ];
         }
 
+        try {
+            $this->validate($items);
+        } catch (\Exception $e) {
+            throw $e;
+        }
+
         return $items;
+    }
+
+    /**
+     * Validates each ingredient value
+     *
+     * @param array $items Array of items uploaded
+     *
+     * @throws \Exception
+     * @return void
+     */
+    protected function validate($items)
+    {
+        array_walk_recursive(
+            $items, function ($value, $key) {
+                if (!preg_match($this->inputValidation[$key], $value)) {
+                    throw new \Exception(
+                        '"' . $value
+                        . ' is an invalid for entry for field "'
+                        . $key . '"'
+                    );
+                }
+            }
+        );
     }
 }

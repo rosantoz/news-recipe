@@ -43,4 +43,14 @@ class ItemsTest extends \PHPUnit_Framework_TestCase
         $this->items->getItemFromCsvFile($file);
 
     }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testExceptionWhenItemsAreInAnInvalidFormat()
+    {
+        $file = __DIR__ . '/../../../fixtures/fridge_with_invalid_item.csv';
+
+        $this->items->getItemFromCsvFile($file);
+    }
 }
