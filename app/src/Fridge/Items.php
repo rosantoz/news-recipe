@@ -4,10 +4,8 @@ namespace Fridge;
 
 class Items
 {
-    public function getItemFromCsvFile()
+    public function getItemFromCsvFile($csvFile)
     {
-        $csvFile = __DIR__ . '/../../../data/fridge.csv';
-
         $file = new \SplFileObject($csvFile);
 
         $file->setFlags(\SplFileObject::READ_CSV);
