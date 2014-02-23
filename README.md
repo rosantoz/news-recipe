@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/rosantoz/news-recipe.png)](https://travis-ci.org/rosantoz/news-recipe)
