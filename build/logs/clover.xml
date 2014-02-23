@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1393124040">
+  <project timestamp="1393124040">
+    <package name="Fridge">
+      <file name="/Users/rodrigodossantos/Dev/vagrant/projects/recipe-finder/app/src/Fridge/Items.php">
+        <class name="Items" namespace="Fridge" fullPackage="Fridge" category="RecipeFinder" package="Fridge">
+          <metrics methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="36" coveredelements="36"/>
+        </class>
+        <line num="42" type="method" name="getItemFromCsvFile" crap="3" count="7"/>
+        <line num="44" type="stmt" count="7"/>
+        <line num="46" type="stmt" count="6"/>
+        <line num="47" type="stmt" count="6"/>
+        <line num="49" type="stmt" count="6"/>
+        <line num="51" type="stmt" count="6"/>
+        <line num="53" type="stmt" count="6"/>
+        <line num="55" type="stmt" count="6"/>
+        <line num="56" type="stmt" count="6"/>
+        <line num="57" type="stmt" count="6"/>
+        <line num="58" type="stmt" count="6"/>
+        <line num="60" type="stmt" count="6"/>
+        <line num="61" type="stmt" count="6"/>
+        <line num="64" type="stmt" count="6"/>
+        <line num="65" type="stmt" count="6"/>
+        <line num="66" type="stmt" count="1"/>
+        <line num="69" type="stmt" count="5"/>
+        <line num="80" type="method" name="validate" crap="2" count="6"/>
+        <line num="82" type="stmt" count="6"/>
+        <line num="83" type="method" name="anonymous function" crap="2" count="6"/>
+        <line num="85" type="stmt" count="6"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="88" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
+        <line num="90" type="stmt" count="1"/>
+        <line num="92" type="stmt" count="6"/>
+        <line num="93" type="stmt" count="6"/>
+        <line num="94" type="stmt" count="5"/>
+        <metrics loc="94" ncloc="57" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="26" coveredstatements="26" elements="29" coveredelements="29"/>
+      </file>
+    </package>
+    <package name="Recipe">
+      <file name="/Users/rodrigodossantos/Dev/vagrant/projects/recipe-finder/app/src/Recipe/Finder.php">
+        <class name="Finder" namespace="Recipe" fullPackage="Recipe" category="RecipeFinder" package="Recipe">
+          <metrics methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="49" elements="57" coveredelements="57"/>
+        </class>
+        <line num="37" type="method" name="__construct" crap="1" count="5"/>
+        <line num="39" type="stmt" count="5"/>
+        <line num="40" type="stmt" count="5"/>
+        <line num="41" type="stmt" count="5"/>
+        <line num="48" type="method" name="find" crap="9" count="4"/>
+        <line num="50" type="stmt" count="4"/>
+        <line num="51" type="stmt" count="4"/>
+        <line num="53" type="stmt" count="4"/>
+        <line num="54" type="stmt" count="4"/>
+        <line num="55" type="stmt" count="4"/>
+        <line num="57" type="stmt" count="4"/>
+        <line num="58" type="stmt" count="4"/>
+        <line num="60" type="stmt" count="4"/>
+        <line num="62" type="stmt" count="3"/>
+        <line num="65" type="stmt" count="3"/>
+        <line num="66" type="stmt" count="3"/>
+        <line num="67" type="stmt" count="3"/>
+        <line num="68" type="stmt" count="3"/>
+        <line num="70" type="stmt" count="3"/>
+        <line num="72" type="stmt" count="4"/>
+        <line num="73" type="stmt" count="4"/>
+        <line num="74" type="stmt" count="4"/>
+        <line num="75" type="stmt" count="2"/>
+        <line num="76" type="stmt" count="2"/>
+        <line num="77" type="stmt" count="2"/>
+        <line num="78" type="stmt" count="4"/>
+        <line num="79" type="stmt" count="4"/>
+        <line num="81" type="stmt" count="4"/>
+        <line num="82" type="stmt" count="2"/>
+        <line num="85" type="stmt" count="2"/>
+        <line num="95" type="method" name="getIngredients" crap="2" count="4"/>
+        <line num="97" type="stmt" count="4"/>
+        <line num="110" type="method" name="isInTheFridge" crap="6" count="4"/>
+        <line num="113" type="stmt" count="4"/>
+        <line num="114" type="stmt" count="4"/>
+        <line num="115" type="stmt" count="4"/>
+        <line num="116" type="stmt" count="4"/>
+        <line num="117" type="stmt" count="4"/>
+        <line num="118" type="stmt" count="4"/>
+        <line num="119" type="stmt" count="3"/>
+        <line num="121" type="stmt" count="4"/>
+        <line num="123" type="stmt" count="4"/>
+        <line num="133" type="method" name="hasExpired" crap="1" count="3"/>
+        <line num="135" type="stmt" count="3"/>
+        <line num="145" type="method" name="getUseBy" crap="1" count="3"/>
+        <line num="147" type="stmt" count="3"/>
+        <line num="158" type="method" name="closestUseBy" crap="1" count="2"/>
+        <line num="160" type="stmt" count="2"/>
+        <line num="161" type="method" name="anonymous function" crap="1" count="2"/>
+        <line num="163" type="stmt" count="1"/>
+        <line num="164" type="stmt" count="1"/>
+        <line num="166" type="stmt" count="2"/>
+        <line num="168" type="stmt" count="2"/>
+        <metrics loc="169" ncloc="98" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="46" elements="54" coveredelements="54"/>
+      </file>
+      <file name="/Users/rodrigodossantos/Dev/vagrant/projects/recipe-finder/app/src/Recipe/Recipes.php">
+        <class name="Recipes" namespace="Recipe" fullPackage="Recipe" category="RecipeFinder" package="Recipe">
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+        </class>
+        <line num="37" type="method" name="getFromJsonFile" crap="2" count="6"/>
+        <line num="39" type="stmt" count="6"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="43" type="stmt" count="5"/>
+        <line num="45" type="stmt" count="5"/>
+        <metrics loc="47" ncloc="19" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </file>
+    </package>
+    <metrics files="3" loc="310" ncloc="174" classes="3" methods="12" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="76" coveredstatements="76" elements="88" coveredelements="88"/>
+  </project>
+</coverage>
