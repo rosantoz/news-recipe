@@ -1,2 +1,2 @@
-coverage_clover: build/logs/clover.xml
-repo_token: k8uqBVFdavkDTKBpC3HWpm5VY1rRC8A9I
+src_dir: ./app/src
+coverage_clover: ./build/logs/clover.xml
