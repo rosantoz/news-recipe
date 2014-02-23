@@ -3,7 +3,7 @@
 # Requirements
 ```PHP 5.4+```
 
-# Installing dependencies
+# Dependencies
 Install dependencies using composer
 
 ```composer install```
@@ -14,7 +14,7 @@ or
 
 # Unit tests
 
-Assuming you installed all dependencies using composer you can run the unit tests with the following command
+Assuming you have installed all dependencies using composer, you can run the unit tests with the following command:
 
 ```./vendor/bin/phpunit -c ./phpunit.xml.dist```
 
