@@ -24,7 +24,7 @@ Code coverage report is available in ```./build/logs/report/index.html```
 
 # Documentation
 
-```./build/docs/index.html```
+``` . /build/docs/index.html```
 
 # Continuous Integration
 
