@@ -1,0 +1,33 @@
+[
+    {
+        "name"       : "student sandwich",
+        "ingredients": [
+            {
+                "item"  : "bread",
+                "amount": "2",
+                "unit"  : "slices"
+            },
+            {
+                "item"  : "cheese",
+                "amount": "2",
+                "unit"  : "slices"
+            }
+        ]
+    },
+    {
+        "name"       : "student toast",
+        "ingredients": [
+            {
+                "item"  : "bread",
+                "amount": "1",
+                "unit"  : "slices"
+            },
+
+            {
+                "item"  : "butter",
+                "amount": "50",
+                "unit"  : "grams"
+            }
+        ]
+    }
+]

@@ -43,38 +43,46 @@ class Finder
     /**
      * Returns a list of what to cook
      *
-     * @return array
+     * @return string What to cook tonight
      */
     public function find()
     {
+        $ingredientsFound = 0;
+        $closestUseBy     = 0;
+
         $matchingItems = [];
         foreach ($this->recipes as $recipe) {
+            foreach ($this->items as $item) {
 
-            $ingredientAvailable = false;
+                $recipeIngredients   = $this->getIngredients($recipe);
+                $numberOfIngredients = count($recipeIngredients);
 
-            $recipeIngredients = $this->getIngredients($recipe);
+                if ($this->isInTheFridge($recipeIngredients, $item)) {
 
+                    $ingredientsFound++;
 
-            foreach ($recipeIngredients as $ingredient) {
-                if (!$this->isInTheFridge($ingredient)) {
-                    continue 2;
+                    if ($closestUseBy == 0
+                        || $closestUseBy > $this->getUseBy($item['useBy'])
+                    ) {
+                        $recipe['useBy'] = $this->getUseBy($item['useBy']);
+                    }
+
                 }
 
-                $ingredientAvailable = true;
-
+                if (($ingredientsFound > 0)
+                    && ($ingredientsFound === $numberOfIngredients)
+                ) {
+                    $matchingItems[]  = $recipe;
+                    $ingredientsFound = 0;
+                }
             }
-
-            if ($ingredientAvailable) {
-                $matchingItems[] = $recipe['name'];
-            }
-
         }
 
-        if (!count($matchingItems)) {
-            return self::NO_RECIPES_FOUND;
+        if (count($matchingItems)) {
+            return $this->closestUseBy($matchingItems);
         }
 
-        return $matchingItems;
+        return self::NO_RECIPES_FOUND;
     }
 
     /**
@@ -94,14 +102,15 @@ class Finder
      * has the required amount and unit
      * and has not passed its use-by date.
      *
-     * @param string $ingredient Ingredient Name
+     * @param string $recipeIngredients Ingredient Name
+     * @param array  $item              Item array
      *
      * @return bool
      */
-    public function isInTheFridge($ingredient)
+    public function isInTheFridge($recipeIngredients, $item)
     {
-        foreach ($this->items as $item) {
 
+        foreach ($recipeIngredients as $ingredient) {
             if (($item['item'] === $ingredient['item'])
                 && ($item['amount'] >= $ingredient['amount'])
                 && ($item['unit'] === $ingredient['unit'])
@@ -123,11 +132,39 @@ class Finder
      */
     protected function hasExpired($useBy)
     {
-        return strtotime(str_replace('/', '-', $useBy)) < time();
+        return $this->getUseBy($useBy) < time();
     }
 
-    public function getClosestUseBy()
+    /**
+     * Converts use-by date to timestamp
+     *
+     * @param string $useBy Date (dd/mm/YYYY)
+     *
+     * @return int
+     */
+    protected function getUseBy($useBy)
     {
+        return strtotime(str_replace('/', '-', $useBy));
+    }
 
+    /**
+     * Sort the recipes found by the one
+     * with closest use by item
+     *
+     * @param array $recipes Recipes Array
+     *
+     * @return string
+     */
+    public function closestUseBy($recipes)
+    {
+        usort(
+            $recipes, function ($recipe1, $recipe2) {
+
+                return $this->getUseBy($recipe1['useBy'])
+                - $this->getUseBy($recipe2['useBy']);
+            }
+        );
+
+        return $recipes[0]['name'];
     }
 }

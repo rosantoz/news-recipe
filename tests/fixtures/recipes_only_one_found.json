@@ -1,0 +1,17 @@
+[
+    {
+        "name"       : "hot dog",
+        "ingredients": [
+            {
+                "item"  : "bread",
+                "amount": "2",
+                "unit"  : "slices"
+            },
+            {
+                "item"  : "sausage",
+                "amount": "1",
+                "unit"  : "of"
+            }
+        ]
+    }
+]

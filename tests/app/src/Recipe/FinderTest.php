@@ -10,7 +10,7 @@ class FinderTest extends \PHPUnit_Framework_TestCase
 {
     public function testClassInstance()
     {
-        $this->assertInstanceOf('Recipe\Finder',  new Finder([], []));
+        $this->assertInstanceOf('Recipe\Finder', new Finder([], []));
     }
 
     public function testGetMatchingItemsWithValidInput()
@@ -27,8 +27,7 @@ class FinderTest extends \PHPUnit_Framework_TestCase
 
         $whatToCook = $finder->find();
 
-        $this->assertCount(1, $whatToCook);
-        $this->assertEquals('grilled cheese on toast', $whatToCook[0]);
+        $this->assertEquals('grilled cheese on toast', $whatToCook);
 
     }
 
@@ -47,6 +46,43 @@ class FinderTest extends \PHPUnit_Framework_TestCase
         $whatToCook = $finder->find();
 
         $this->assertEquals('Order Takeout', $whatToCook);
+    }
+
+    public function testResultWhenOnlyOneIngredientIsFound()
+    {
+        $itemsFile   = __DIR__ . '/../../../fixtures/fridge_only_one_found.csv';
+        $recipesFile = __DIR__ . '/../../../fixtures/recipes_only_one_found.json';
+
+        $items   = new Items();
+        $recipes = new Recipes();
+        $finder  = new Finder(
+            $items->getItemFromCsvFile($itemsFile),
+            $recipes->getFromJsonFile($recipesFile)
+        );
+
+        $whatToCook = $finder->find();
+
+        $this->assertEquals('Order Takeout', $whatToCook);
+    }
+
+    /**
+     * @group now
+     */
+    public function testResultWhenMoreThanOneRecipeIsFound()
+    {
+        $itemsFile   = __DIR__ . '/../../../fixtures/fridge_closest_use_by.csv';
+        $recipesFile = __DIR__ . '/../../../fixtures/recipes_closest_use_by.json';
+
+        $items   = new Items();
+        $recipes = new Recipes();
+        $finder  = new Finder(
+            $items->getItemFromCsvFile($itemsFile),
+            $recipes->getFromJsonFile($recipesFile)
+        );
+
+        $whatToCook = $finder->find();
+
+        $this->assertEquals('student toast', $whatToCook);
     }
 
 }
