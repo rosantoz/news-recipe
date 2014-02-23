@@ -24,9 +24,11 @@ Code coverage report is available in ```./build/logs/report/index.html```
 
 # Documentation
 
-``` . /build/docs/index.html```
+Check folder ```./build/docs/index.html```
 
 # Continuous Integration
+
+[![Build Status](https://travis-ci.org/rosantoz/news-recipe.png)](https://travis-ci.org/rosantoz/news-recipe) [![Coverage Status](https://coveralls.io/repos/rosantoz/news-recipe/badge.png?branch=master)](https://coveralls.io/r/rosantoz/news-recipe?branch=master)
 
 Available via travis-ci and coverall.io. Just click in the badges above
 
