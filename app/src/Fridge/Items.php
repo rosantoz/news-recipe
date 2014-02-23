@@ -84,8 +84,8 @@ class Items
 
                 if (!preg_match($this->inputValidation[$key], $value)) {
                     throw new \Exception(
-                        '"' . $value
-                        . ' is an invalid for entry for field "'
+                        '"' . $value . ' "'
+                        . ' is an invalid value for field "'
                         . $key . '"'
                     );
                 }
