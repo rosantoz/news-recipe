@@ -36,11 +36,11 @@ class Recipes
      */
     public function getFromJsonFile($jsonFile)
     {
-        try {
-            $recipes = json_decode(file_get_contents($jsonFile), true);
-        } catch (\Exception $e) {
-            throw $e;
+        if (!is_readable($jsonFile)) {
+            throw new \Exception('Could not read recipes file!');
         }
+
+        $recipes = json_decode(file_get_contents($jsonFile), true);
 
         return $recipes;
     }
