@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/rosantoz/news-recipe.png)](https://travis-ci.org/rosantoz/news-recipe)
+[![Build Status](https://travis-ci.org/rosantoz/news-recipe.png)](https://travis-ci.org/rosantoz/news-recipe) [![Coverage Status](https://coveralls.io/repos/rosantoz/news-recipe/badge.png?branch=master)](https://coveralls.io/r/rosantoz/news-recipe?branch=master)
