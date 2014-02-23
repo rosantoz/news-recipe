@@ -1,2 +1,0 @@
-src_dir: ./app/src
-coverage_clover: ./build/logs/clover.xml
